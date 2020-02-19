@@ -1,6 +1,16 @@
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+</head>
 <h2><%= @task.title %></h2>
 <p><%= @task.details %></p>
 <p><%= @completed %></p>
+
+
+<% if @task.completed %>
+  <i class="fas fa-check-circle"></i>
+<% else %>
+  <i class="fas fa-circle"></i>
+<% end %>
 <%= link_to "home", index_path %>
 <%= link_to "edit", edit_path %>
-<%= link_to "delete", delete_path(@task), method: :delete %>
+<%= link_to "delete", delete_path(@task), method: :delete, data: { confirm: 'Are you sure?'} %>
